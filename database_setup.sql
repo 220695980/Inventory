@@ -1,3 +1,26 @@
+DROP TABLE IF EXISTS sale_records;
+DROP TABLE IF EXISTS products;
+
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(120) NOT NULL,
+    sku VARCHAR(50) NOT NULL,
+    quantity INT NOT NULL,
+    reorder_level INT NOT NULL,
+    unit_price DECIMAL(10,2) NOT NULL,
+    supplier_name VARCHAR(120) NOT NULL,
+    category VARCHAR(80) NOT NULL
+);
+
+CREATE TABLE sale_records (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    item_name VARCHAR(120) NOT NULL,
+    category VARCHAR(80) NOT NULL,
+    quantity_sold INT NOT NULL,
+    unit_price DECIMAL(10,2) NOT NULL,
+    sale_date DATE NOT NULL
+);
+
 INSERT INTO products (name, sku, quantity, reorder_level, unit_price, supplier_name, category) VALUES
 ('Bread Rolls', 'INV-001', 40, 20, 4.50, 'Fresh Bake Ltd', 'Bakery'),
 ('Chicken Wrap', 'INV-002', 18, 25, 35.00, 'Farm Foods', 'Meals'),
